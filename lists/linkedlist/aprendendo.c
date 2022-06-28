@@ -6,6 +6,33 @@ typedef struct node { //Como criar um node. Essa struct node tem X bytes.
     node *next;
 } node;
 
+typedef struct list_t{
+    node * first;
+    node * end;
+} list;
+
+list * newList(){
+    list * lst = (list*)calloc( 1, sizeof(list));
+    lst->first = NULL;
+    lst->end = NULL;
+    return lst;
+}
+
+void insertIntoList(list* lis, int i){
+    node* nodepointer = (node*)calloc(1, sizeof(node));
+    nodepointer->data = i;
+    nodepointer->next = NULL;
+    
+    if(lst->first == NULL && lst->end == NULL){
+        lst->first = nodepointer;
+        lst->end = nodepointer;
+    }
+    else{
+        lst->end->next = nodepointer;
+        lst->end = nodepointer;
+    }
+}
+
 void printaData(node *head){
     node *temp = head;
     while(temp != 0){
